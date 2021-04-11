@@ -1,12 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+
 import '../../../../core/base/state/base_state.dart';
 import '../../../../core/base/view/base_view.dart';
+import '../../../../core/constants/enums/preferences_keys_enum.dart';
+import '../../../../core/extension/string_extension.dart';
+import '../../../../core/init/cache/locale_manager.dart';
 import '../../../../core/init/lang/language_manager.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
 import '../viewmodel/test_view_model.dart';
-import '../../../../core/extension/string_extension.dart';
 
 class TestView extends StatefulWidget {
   @override
@@ -28,6 +31,8 @@ class _TestViewState extends BaseState<TestView> {
 
   Widget get scaffoldBody => Scaffold(
         appBar: AppBar(
+          leading: Text(
+              LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)),
           title: Text(LocaleKeys.welcome.locale),
           actions: [textWelcomeWidget()],
         ),
