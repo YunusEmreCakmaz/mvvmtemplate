@@ -10,6 +10,7 @@ import '../../../../core/init/cache/locale_manager.dart';
 import '../../../../core/init/lang/language_manager.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
 import '../viewmodel/test_view_model.dart';
+import 'package:mvvmtemplate/core/extension/string_extension.dart';
 
 class TestView extends StatefulWidget {
   @override
@@ -30,21 +31,27 @@ class _TestViewState extends BaseState<TestView> {
   }
 
   Widget get scaffoldBody => Scaffold(
-        appBar: AppBar(
-          leading: Text(
-              LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)),
-          title: Text(LocaleKeys.welcome.locale),
-          actions: [textWelcomeWidget()],
-        ),
+        appBar: appBar(),
         floatingActionButton: floatingActionButtonNumberIncrement,
         body: textNumber,
       );
 
-  IconButton textWelcomeWidget() {
+  AppBar appBar() {
+    return AppBar(
+      leading:
+          Text(LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)),
+      title: textWelcomeWidget(),
+      actions: [iconButtonChangeTheme()],
+    );
+  }
+
+  Text textWelcomeWidget() => Text(LocaleKeys.welcome.locale);
+
+  IconButton iconButtonChangeTheme() {
     return IconButton(
         icon: Icon(Icons.change_history),
         onPressed: () {
-          context.setLocale(LanguageManager.instance.enLocale);
+          context.locale = LanguageManager.instance.enLocale;
         });
   }
 
@@ -56,6 +63,16 @@ class _TestViewState extends BaseState<TestView> {
     );
   }
 
-  Widget get textNumber =>
-      Observer(builder: (context) => Text(viewModel.number.toString()));
+  Widget get textNumber {
+    return Column(children: [
+      mailField,
+      Observer(builder: (context) => Text(viewModel.number.toString())),
+    ]);
+  }
+}
+
+extension _FormField on _TestViewState {
+  TextFormField get mailField => TextFormField(
+        validator: (value) => value.isValidEmail,
+      );
 }

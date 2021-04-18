@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:mvvmtemplate/core/base/model/base_view_model.dart';
 import 'package:mvvmtemplate/core/constants/enums/app_theme_enum.dart';
 import 'package:mvvmtemplate/core/init/network/network_manager.dart';
 import 'package:mvvmtemplate/core/init/notifier/theme_notifier.dart';
@@ -9,12 +10,9 @@ part 'test_view_model.g.dart';
 
 class TestViewModel = _TestViewModelBase with _$TestViewModel;
 
-abstract class _TestViewModelBase with Store {
-  BuildContext context;
-
-  void setContext(BuildContext context) {
-    this.context = context;
-  }
+abstract class _TestViewModelBase with Store, BaseViewModel {
+  void setContext(BuildContext context) => this.context = context;
+  void init() {}
 
   @observable
   bool isLoading = false;
