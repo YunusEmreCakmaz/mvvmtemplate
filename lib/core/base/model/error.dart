@@ -1,4 +1,4 @@
-import 'package:mvvmtemplate/core/init/network/iresponse_model.dart';
+import '../../init/network/iresponse_model.dart';
 
 class BaseError extends IErrorModel {
   final String message;

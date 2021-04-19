@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:mvvmtemplate/core/constants/enums/http_type_enum.dart';
-import 'package:mvvmtemplate/core/init/network/iresponse_model.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/base/model/base_view_model.dart';
 import '../../../../core/constants/enums/app_theme_enum.dart';
-import '../../../../core/init/network/network_manager.dart';
+import '../../../../core/constants/enums/http_type_enum.dart';
+import '../../../../core/init/network/iresponse_model.dart';
 import '../../../../core/init/notifier/theme_notifier.dart';
 import '../model/test_model.dart';
 

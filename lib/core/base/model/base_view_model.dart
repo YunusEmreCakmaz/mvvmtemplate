@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:mvvmtemplate/core/init/network/icore_dio.dart';
-import 'package:mvvmtemplate/core/init/network/network_manager.dart';
+
+import '../../init/network/icore_dio.dart';
+import '../../init/network/network_manager.dart';
 
 abstract class BaseViewModel {
   BuildContext context;

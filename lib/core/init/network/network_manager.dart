@@ -1,13 +1,9 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
-import 'package:mvvmtemplate/core/init/network/core_dio.dart';
-import 'package:mvvmtemplate/core/init/network/icore_dio.dart';
 
-import '../../base/model/base_model.dart';
-import '../../base/model/error.dart';
 import '../../constants/enums/preferences_keys_enum.dart';
 import '../cache/locale_manager.dart';
+import 'core_dio.dart';
+import 'icore_dio.dart';
 
 class NetworkManager {
   static NetworkManager _instance;

@@ -1,4 +1,4 @@
-import 'package:mvvmtemplate/core/constants/enums/http_type_enum.dart';
+import '../constants/enums/http_type_enum.dart';
 
 extension NetworkTypeExtension on HttpTypes {
   String get rawValue {

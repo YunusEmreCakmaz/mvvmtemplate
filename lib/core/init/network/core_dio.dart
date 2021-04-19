@@ -3,13 +3,14 @@ import 'dart:io';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:mvvmtemplate/core/base/model/base_model.dart';
-import 'package:mvvmtemplate/core/base/model/error.dart';
-import 'package:mvvmtemplate/core/constants/enums/http_type_enum.dart';
-import 'package:mvvmtemplate/core/init/network/icore_dio.dart';
-import 'package:mvvmtemplate/core/extension/network_type_extension.dart';
 
+import '../../base/model/base_model.dart';
+import '../../base/model/error.dart';
+import '../../constants/enums/http_type_enum.dart';
+import '../../extension/network_type_extension.dart';
+import 'icore_dio.dart';
 import 'iresponse_model.dart';
+
 part './network_core/core_operations.dart';
 
 class CoreDio with DioMixin implements Dio, ICoreDio {

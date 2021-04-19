@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mvvmtemplate/core/base/model/base_model.dart';
-import 'package:mvvmtemplate/core/constants/enums/http_type_enum.dart';
+import '../../base/model/base_model.dart';
+import '../../constants/enums/http_type_enum.dart';
 
 import 'iresponse_model.dart';
 
