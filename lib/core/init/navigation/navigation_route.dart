@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mvvmtemplate/core/components/card/not_found_navigation_widget.dart';
-import 'package:mvvmtemplate/core/constants/navigation/navigation_constants.dart';
-import 'package:mvvmtemplate/view/authentication/test/view/test_view.dart';
+
+import '../../../view/authentication/test/view/test_view.dart';
+import '../../components/card/not_found_navigation_widget.dart';
+import '../../constants/navigation/navigation_constants.dart';
 
 class NavigationRoute {
   static NavigationRoute _instance = NavigationRoute._init();

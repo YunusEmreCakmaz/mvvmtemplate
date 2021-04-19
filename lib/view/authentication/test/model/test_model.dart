@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mvvmtemplate/core/base/model/base_model.dart';
+
+import '../../../../core/base/model/base_model.dart';
 
 @JsonSerializable()
 class TestModel extends BaseModel {

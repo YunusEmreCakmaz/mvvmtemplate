@@ -1,10 +1,13 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:mvvmtemplate/core/base/model/error.dart';
-import 'package:mvvmtemplate/core/base/model/base_model.dart';
-import 'package:mvvmtemplate/core/constants/enums/preferences_keys_enum.dart';
-import 'package:mvvmtemplate/core/init/cache/locale_manager.dart';
+import 'package:mvvmtemplate/core/init/network/core_dio.dart';
+import 'package:mvvmtemplate/core/init/network/icore_dio.dart';
+
+import '../../base/model/base_model.dart';
+import '../../base/model/error.dart';
+import '../../constants/enums/preferences_keys_enum.dart';
+import '../cache/locale_manager.dart';
 
 class NetworkManager {
   static NetworkManager _instance;
@@ -13,6 +16,8 @@ class NetworkManager {
     return _instance;
   }
 
+  ICoreDio coreDio;
+
   NetworkManager._init() {
     final baseOptions = BaseOptions(
       baseUrl: "https://jsonplaceholder.typicode.com/",
@@ -20,9 +25,12 @@ class NetworkManager {
         "val": LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)
       },
     );
-    _dio = Dio(baseOptions);
 
-    _dio.interceptors.add(InterceptorsWrapper(
+    //_dio = Dio(baseOptions);
+
+    coreDio = CoreDio(baseOptions);
+
+    /*_dio.interceptors.add(InterceptorsWrapper(
       onRequest: (options) {
         options.path += "veli";
       },
@@ -33,24 +41,6 @@ class NetworkManager {
         return BaseError(e.message);
       },
     ));
-  }
-
-  Dio _dio;
-
-  Future dioGet<T extends BaseModel>(String path, T model) async {
-    final response = await _dio.get(path);
-
-    switch (response.statusCode) {
-      case HttpStatus.ok:
-        final responeBody = response.data;
-        if (responeBody is List) {
-          return responeBody.map((e) => model.fromJson(e)).toList();
-        } else if (responeBody is Map) {
-          return model.fromJson(responeBody);
-        }
-        return responeBody;
-        break;
-      default:
-    }
+  }*/
   }
 }

@@ -10,7 +10,6 @@ import '../../../../core/init/cache/locale_manager.dart';
 import '../../../../core/init/lang/language_manager.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
 import '../viewmodel/test_view_model.dart';
-import 'package:mvvmtemplate/core/extension/string_extension.dart';
 
 class TestView extends StatefulWidget {
   @override

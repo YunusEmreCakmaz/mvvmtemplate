@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mvvmtemplate/core/base/model/error.dart';
 
 main() {
   setUp(() {
@@ -22,6 +23,13 @@ main() {
       final isUserLogin = true;
 
       expect(isUserLogin, isTrue);
+    });
+
+    test("dynamic parse", () {
+      final error = BaseError("message");
+      final errorDynamic = error as dynamic;
+
+      expect(errorDynamic, isNotNull);
     });
   });
 }

@@ -1,5 +1,6 @@
-import 'package:mvvmtemplate/core/constants/enums/preferences_keys_enum.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../constants/enums/preferences_keys_enum.dart';
 
 class LocaleManager {
   SharedPreferences _preferences;
