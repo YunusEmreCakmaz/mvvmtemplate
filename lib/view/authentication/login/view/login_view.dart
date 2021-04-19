@@ -22,7 +22,7 @@ class LoginView extends StatelessWidget {
             padding: context.paddingLow,
             height: context.height * .4,
             color: context.colors.background,
-            child: Text("Hello", style: context.textTheme.subtitle1),
+            child: buildText(context),
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: context.lowValue),
@@ -30,4 +30,10 @@ class LoginView extends StatelessWidget {
           ),
         ],
       ));
+
+  Text buildText(BuildContext context) {
+    return Text("Hello",
+        style: context.textTheme.subtitle1
+            .copyWith(color: context.theme.primaryColor));
+  }
 }
