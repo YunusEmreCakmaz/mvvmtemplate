@@ -1,40 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:mvvmtemplate/core/components/button/icon_normal_button.dart';
+import 'package:mvvmtemplate/view/_widgets/face_book_button.dart';
+import 'package:mvvmtemplate/view/_widgets/login_button.dart';
 
 import '../../../../core/base/view/base_view.dart';
 import '../../../../core/extension/context_extension.dart';
 import '../viewmodel/login_view_model.dart';
 
 class LoginView extends StatelessWidget {
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return BaseView<LoginViewModel>(
       viewModel: LoginViewModel(),
       onModelReady: (model) {
         model.setContext(context);
+        model.init();
       },
       onPageBuilder: (context, value) => buildScaffold(context),
     );
   }
 
   Scaffold buildScaffold(BuildContext context) => Scaffold(
-          body: ListView(
-        children: [
-          Container(
-            padding: context.paddingLow,
-            height: context.height * .4,
-            color: context.colors.background,
-            child: buildText(context),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: context.lowValue),
-            child: Placeholder(),
-          ),
-        ],
-      ));
-
-  Text buildText(BuildContext context) {
-    return Text("Hello",
-        style: context.textTheme.subtitle1
-            .copyWith(color: context.theme.primaryColor));
-  }
+        key: scaffoldKey,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              decoration: InputDecoration(enabledBorder: OutlineInputBorder()),
+            ),
+            FaceBookButton(
+              onComplete: (data, {errorMessage}) {
+                if (data != null) {
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(errorMessage),
+                    ),
+                  );
+                }
+              },
+            ),
+          ],
+        ),
+      );
 }

@@ -50,7 +50,7 @@ class _TestViewState extends BaseState<TestView> {
     return IconButton(
         icon: Icon(Icons.change_history),
         onPressed: () {
-          context.locale = LanguageManager.instance.enLocale;
+          context.setLocale(LanguageManager.instance.enLocale);
         });
   }
 
