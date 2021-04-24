@@ -10,3 +10,7 @@ extension StringExtension on String {
           ? null
           : "Email is not valid";
 }
+
+extension ImagePathExtension on String {
+  String get toSVG => 'assets/svg/$this.svg';
+}

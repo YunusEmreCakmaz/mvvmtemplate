@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:mvvmtemplate/core/base/model/base_view_model.dart';
-import 'package:mvvmtemplate/view/authentication/onboard/model/on_board_model.dart';
+import 'package:mvvmtemplate/core/constants/enums/preferences_keys_enum.dart';
+import 'package:mvvmtemplate/core/constants/navigation/navigation_constants.dart';
+
+import '../../../../core/base/model/base_view_model.dart';
+import '../../../../core/init/lang/locale_keys.g.dart';
+import '../../../_product/_constants/image_path_svg.dart';
+import '../model/on_board_model.dart';
+
 part 'on_board_view_model.g.dart';
 
 class OnBoardViewModel = _OnBoardViewModelBase with _$OnBoardViewModel;
@@ -9,16 +15,37 @@ class OnBoardViewModel = _OnBoardViewModelBase with _$OnBoardViewModel;
 abstract class _OnBoardViewModelBase with Store, BaseViewModel {
   void setContext(BuildContext context) => this.context = context;
   void init() {
-    onBoardList = List.generate(5, (index) => OnBoardModel(index.toString()));
+    onBoardItems.add(OnBoardModel(LocaleKeys.onBoard_page1_title,
+        LocaleKeys.onBoard_page1_desc, SVGImagePath.instance.astronautSVG));
+    onBoardItems.add(OnBoardModel(LocaleKeys.onBoard_page2_title,
+        LocaleKeys.onBoard_page2_desc, SVGImagePath.instance.chattingSVG));
+    onBoardItems.add(OnBoardModel(LocaleKeys.onBoard_page3_title,
+        LocaleKeys.onBoard_page3_desc, SVGImagePath.instance.relaxSVG));
   }
 
-  List<OnBoardModel> onBoardList;
-
   @observable
-  int currentPageIndex = 0;
+  int currentIndex = 0;
 
   @action
-  void onPageChanged(int index) {
-    currentPageIndex = index;
+  void changeCurrentIndex(int index) {
+    currentIndex = index;
+  }
+
+  @observable
+  bool isLoading = false;
+
+  List<OnBoardModel> onBoardItems = [];
+
+  @action
+  void changeLoading() {
+    isLoading = !isLoading;
+  }
+
+  Future<void> completeToOnBoard() async {
+    changeLoading();
+    await localeManager.setBoolValue(PreferencesKeys.IS_FIRST_APP, true);
+    changeLoading();
+
+    await navigation.navigateToPageClear(path: NavigationConstants.TEST_VIEW);
   }
 }

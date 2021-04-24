@@ -8,11 +8,12 @@ class NormalButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return Padding(
       padding: EdgeInsets.all(15),
-      elevation: 10,
-      onPressed: onPressed,
-      child: Center(child: Text("Text")),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        child: Center(child: Text("Text")),
+      ),
     );
   }
 }

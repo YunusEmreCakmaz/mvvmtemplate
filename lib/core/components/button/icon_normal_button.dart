@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mvvmtemplate/core/components/button/normal_button.dart';
+
+import 'normal_button.dart';
 
 class IconNormalButton extends StatelessWidget {
   final IconData icon;

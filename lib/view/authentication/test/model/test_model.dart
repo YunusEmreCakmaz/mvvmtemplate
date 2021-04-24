@@ -11,8 +11,8 @@ class TestModel extends BaseModel {
 
   TestModel({this.userId, this.id, this.title, this.completed});
 
-  Map<String, dynamic> toJson(Object data) {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+  Map<String, Object> toJson() {
+    final Map<String, Object> data = new Map<String, Object>();
     data['userId'] = this.userId;
     data['id'] = this.id;
     data['title'] = this.title;

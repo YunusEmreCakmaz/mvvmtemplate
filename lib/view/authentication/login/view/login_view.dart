@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mvvmtemplate/core/components/button/icon_normal_button.dart';
-import 'package:mvvmtemplate/view/_widgets/face_book_button.dart';
-import 'package:mvvmtemplate/view/_widgets/login_button.dart';
+import '../../../_product/_widgets/face_book_button.dart';
 
 import '../../../../core/base/view/base_view.dart';
-import '../../../../core/extension/context_extension.dart';
 import '../viewmodel/login_view_model.dart';
 
 class LoginView extends StatelessWidget {
-  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {

@@ -29,6 +29,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
     return TextTheme(
       headline1: textThemeLight.headline1,
       headline2: textThemeLight.headline2,
+      headline3: textThemeLight.headline3,
     );
   }
 
@@ -45,7 +46,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
         onSecondary: Colors.black, //x
         onSurface: Colors.white30,
         onBackground: Colors.black12,
-        onError: Color(0xFFF9B916), //xx
+        onError: Colors.orange, //xx
         brightness: Brightness.light);
   }
 }
