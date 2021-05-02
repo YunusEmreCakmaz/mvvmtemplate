@@ -8,6 +8,7 @@ class ImageConstants {
   ImageConstants._init();
 
   String get logo => toPng("Emre");
+  String get hotDog => toPng("hotdogs");
 
-  String toPng(String name) => "assets/image/$name";
+  String toPng(String name) => "assets/image/$name.png";
 }

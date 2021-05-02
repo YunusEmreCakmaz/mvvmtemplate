@@ -24,6 +24,21 @@ mixin _$OnBoardViewModel on _OnBoardViewModelBase, Store {
     });
   }
 
+  final _$isLoadingAtom = Atom(name: '_OnBoardViewModelBase.isLoading');
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
   final _$_OnBoardViewModelBaseActionController =
       ActionController(name: '_OnBoardViewModelBase');
 
@@ -39,9 +54,21 @@ mixin _$OnBoardViewModel on _OnBoardViewModelBase, Store {
   }
 
   @override
+  void changeLoading() {
+    final _$actionInfo = _$_OnBoardViewModelBaseActionController.startAction(
+        name: '_OnBoardViewModelBase.changeLoading');
+    try {
+      return super.changeLoading();
+    } finally {
+      _$_OnBoardViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
-currentIndex: ${currentIndex}
+currentIndex: ${currentIndex},
+isLoading: ${isLoading}
     ''';
   }
 }
