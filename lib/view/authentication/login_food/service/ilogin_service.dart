@@ -1,5 +1,4 @@
-import 'package:mvvmtemplate/core/init/network/icore_dio.dart';
-
+import '../../../../core/init/network/icore_dio.dart';
 import '../model/login_food_model.dart';
 import '../model/login_food_response_model.dart';
 

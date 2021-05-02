@@ -2,8 +2,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../components/sizedbox/space_sized_height_box.dart';
+import '../components/sizedbox/space_sized_width_box.dart';
+
 extension ContextExtension on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
+
+  bool get isKeyBoardOpen => MediaQuery.of(this).viewInsets.bottom > 0;
+  Brightness get appBrightness => MediaQuery.of(this).platformBrightness;
 }
 
 extension MediaQueryExtension on BuildContext {
@@ -14,6 +20,9 @@ extension MediaQueryExtension on BuildContext {
   double get normalValue => height * 0.02;
   double get mediumValue => height * 0.04;
   double get highValue => height * 0.1;
+
+  double dynamicWidth(double val) => width * val;
+  double dynamicHeight(double val) => height * val;
 }
 
 extension ThemeExtension on BuildContext {
@@ -46,6 +55,18 @@ extension PaddingExtensionSymetric on BuildContext {
       EdgeInsets.symmetric(horizontal: mediumValue);
   EdgeInsets get paddingHighHorizontal =>
       EdgeInsets.symmetric(horizontal: highValue);
+}
+
+extension SizedBoxExtension on BuildContext {
+  Widget get emptySizedWidthBoxLow => SpaceSizedWidthBox(width: 0.03);
+  Widget get emptySizedWidthBoxLow3x => SpaceSizedWidthBox(width: 0.03);
+  Widget get emptySizedWidthBoxNormal => SpaceSizedWidthBox(width: 0.53);
+  Widget get emptySizedWidthBoxHigh => SpaceSizedWidthBox(width: 0.1);
+
+  Widget get emptySizedHeightBoxLow => SpaceSizedHeightBox(height: 0.01);
+  Widget get emptySizedHeightBoxLow3x => SpaceSizedHeightBox(height: 0.03);
+  Widget get emptySizedHeightBoxNormal => SpaceSizedHeightBox(height: 0.05);
+  Widget get emptySizedHeightBoxHigh => SpaceSizedHeightBox(height: 0.1);
 }
 
 extension PageExtension on BuildContext {

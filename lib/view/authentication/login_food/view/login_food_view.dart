@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:mvvmtemplate/core/init/lang/locale_keys.g.dart';
+import '../../../../core/init/lang/locale_keys.g.dart';
 
 import '../../../../core/base/view/base_view.dart';
 import '../../../../core/constants/image/image_constants.dart';

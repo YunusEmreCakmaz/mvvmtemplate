@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:mvvmtemplate/core/init/cache/locale_manager.dart';
-import 'package:mvvmtemplate/core/init/navigation/navigation_service.dart';
 
+import '../../init/cache/locale_manager.dart';
+import '../../init/navigation/navigation_service.dart';
 import '../../init/network/icore_dio.dart';
 import '../../init/network/network_manager.dart';
 
