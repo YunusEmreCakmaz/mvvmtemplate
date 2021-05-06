@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvmtemplate/view/_product/_enums/network_routes.dart';
 import '../../../../../core/constants/enums/http_type_enum.dart';
 import '../../../../../core/init/network/icore_dio.dart';
 import '../../../../_product/_utility/service_helper.dart';
@@ -11,9 +12,11 @@ class BuildFeedService extends IBuildFeedService with ServiceHelper {
 
   @override
   Future<List<HouseModel>> fetchUserHouseList() async {
-    final response = await dio.fetch<List<HouseModel>, HouseModel>("/home",
-        parseModel: HouseModel(), type: HttpTypes.GET);
-    showMessage(scaffoldKey, response.error);
+    final response = await dio.fetch<List<HouseModel>, HouseModel>(
+        NetworkRoutes.BUILD_HOME.rawValue,
+        parseModel: HouseModel(),
+        type: HttpTypes.GET);
+    //showMessage(scaffoldKey, response.error);
     return response.data;
   }
 }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:mvvmtemplate/core/init/network/network_manager.dart';
+import 'package:mvvmtemplate/view/home/build/feed/service/build_feed_service.dart';
+import 'package:mvvmtemplate/view/home/build/feed/service/ibuild_feed_service.dart';
 
 import '../../../../../core/base/model/base_view_model.dart';
 import '../../../../_product/_utility/decoration_helper.dart';
@@ -15,7 +18,7 @@ abstract class _BuildFeedViewModelBase with Store, BaseViewModel {
 
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
   DecorationHelper helper;
-  //IBuildFeedService feedService;
+  IBuildFeedService feedService;
   @observable
   List<String> likeItems = [];
 
@@ -42,7 +45,8 @@ abstract class _BuildFeedViewModelBase with Store, BaseViewModel {
   @override
   void init() {
     helper = DecorationHelper(context: context);
-    //feedService = BuildFeedService(vexanaManager!.networkManager, scaffoldKey);
+    feedService =
+        BuildFeedService(NetworkManager.instance.coreDio, scaffoldKey);
   }
 
   @action
@@ -54,7 +58,7 @@ abstract class _BuildFeedViewModelBase with Store, BaseViewModel {
   Future<void> getListAll() async {
     _changeLoading();
 
-    //houseModels = await feedService.fetchUserHouseList();
+    houseModels = await feedService.fetchUserHouseList();
 
     _changeLoading();
   }

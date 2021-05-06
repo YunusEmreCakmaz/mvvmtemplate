@@ -58,7 +58,7 @@ class BuildFeedView extends StatelessWidget {
     return ListView.builder(
       physics: NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) => SizedBox(
-          height: context.dynamicHeight(0.15),
+          height: context.dynamicHeight(0.2),
           child: Card(
             child: Row(
               children: [

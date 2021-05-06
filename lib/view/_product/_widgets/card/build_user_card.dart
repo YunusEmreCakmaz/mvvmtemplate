@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:mvvmtemplate/core/extension/context_extension.dart';
 
-import '../../../../core/extension/context_extension.dart';
 import '../../../home/build/feed/model/house_model.dart';
 
 class BuildUserCard extends StatelessWidget {

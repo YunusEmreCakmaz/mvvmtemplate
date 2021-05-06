@@ -1,7 +1,5 @@
 import 'package:dio/dio.dart';
 
-import '../../constants/enums/preferences_keys_enum.dart';
-import '../cache/locale_manager.dart';
 import 'core_dio.dart';
 import 'icore_dio.dart';
 
@@ -16,10 +14,10 @@ class NetworkManager {
 
   NetworkManager._init() {
     final baseOptions = BaseOptions(
-      baseUrl: "https://jsonplaceholder.typicode.com/",
-      headers: {
+      baseUrl: "http://10.0.2.2:3000/",
+      /*headers: {
         "val": LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)
-      },
+      },*/
     );
 
     //_dio = Dio(baseOptions);
