@@ -19,24 +19,20 @@ class OnBoardMockViewModel implements OnBoardViewModel {
 
   IStringHelper stringHelper;
 
+  @override
   bool isLoading = false;
 
   @override
   void init() {
-    coreDio =
-        CoreDio(BaseOptions(baseUrl: "https://jsonplaceholder.typicode.com"));
+    coreDio = CoreDio(BaseOptions(baseUrl: 'https://jsonplaceholder.typicode.com'));
     stringHelper = MockStringHelper();
   }
 
   Future<void> onBoardGetModels() async {
-    final response = await coreDio.fetch<List<PostModel>, PostModel>("/posts",
-        type: HttpTypes.GET, parseModel: PostModel());
+    final response = await coreDio.fetch<List<PostModel>, PostModel>('/posts', type: HttpTypes.GET, parseModel: PostModel());
 
     if (response.data is List) {
-      onBoardItems = response.data
-          .map((e) => OnBoardModel(stringHelper.toUpper(e.title), "", ""))
-          .toList()
-          .cast<OnBoardModel>();
+      onBoardItems = response.data.map((e) => OnBoardModel(stringHelper.toUpper(e.title), '', '')).toList().cast<OnBoardModel>();
     }
   }
 
@@ -57,7 +53,7 @@ class OnBoardMockViewModel implements OnBoardViewModel {
 
   @override
   void changeCurrentIndex(int index) {
-    // TODO: implement changeCurrentIndex
+    throw UnimplementedError();
   }
 
   @override
@@ -68,12 +64,11 @@ class OnBoardMockViewModel implements OnBoardViewModel {
 
   @override
   void changeLoading() {
-    // TODO: implement changeLoading
+    throw UnimplementedError();
   }
 
   @override
-  Future<void> completeToOnBoard() {
-    // TODO: implement completeToOnBoard
+  Future<void> completeToOnBoard() async {
     throw UnimplementedError();
   }
 }

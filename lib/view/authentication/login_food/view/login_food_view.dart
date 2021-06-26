@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import '../../../../core/init/lang/locale_keys.g.dart';
 
 import '../../../../core/base/view/base_view.dart';
 import '../../../../core/constants/image/image_constants.dart';
 import '../../../../core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension.dart';
+import '../../../../core/init/lang/locale_keys.g.dart';
 import '../viewmodel/login_food_view_model.dart';
 
 class LoginFoodView extends StatelessWidget {
@@ -44,8 +44,7 @@ class LoginFoodView extends StatelessWidget {
   AnimatedContainer buildAnimatedContainer(BuildContext context) {
     return AnimatedContainer(
       duration: context.durationLow,
-      height:
-          context.mediaQuery.viewInsets.bottom > 0 ? 0 : context.height * 0.3,
+      height: context.mediaQuery.viewInsets.bottom > 0 ? 0 : context.height * 0.3,
       color: Colors.white,
       child: Center(
         child: Image.asset(ImageConstants.instance.hotDog),
@@ -61,10 +60,7 @@ class LoginFoodView extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.only(
-            left: context.width * 0.1,
-            right: context.width * 0.1,
-            bottom: context.width * 0.01),
+        padding: EdgeInsets.only(left: context.width * 0.1, right: context.width * 0.1, bottom: context.width * 0.01),
         child: buildTabBar(context),
       ),
     );
@@ -105,9 +101,7 @@ class LoginFoodView extends StatelessWidget {
     );
   }
 
-  Widget buildTextFormFieldPassword(
-          BuildContext context, LoginFoodViewModel viewModel) =>
-      Observer(builder: (_) {
+  Widget buildTextFormFieldPassword(BuildContext context, LoginFoodViewModel viewModel) => Observer(builder: (_) {
         return TextFormField(
           controller: viewModel.passwordController,
           obscureText: viewModel.isLockOpen,
@@ -121,16 +115,14 @@ class LoginFoodView extends StatelessWidget {
                 viewModel.isLockStateChange();
               },
               child: Observer(builder: (_) {
-                return Icon(
-                    viewModel.isLockOpen ? Icons.lock : Icons.lock_open);
+                return Icon(viewModel.isLockOpen ? Icons.lock : Icons.lock_open);
               }),
             ),
           ),
         );
       });
 
-  TextFormField buildTextFormFieldEmail(
-      BuildContext context, LoginFoodViewModel viewModel) {
+  TextFormField buildTextFormFieldEmail(BuildContext context, LoginFoodViewModel viewModel) {
     return TextFormField(
       controller: viewModel.emailController,
       validator: (value) => value.isValidEmail,
@@ -144,9 +136,9 @@ class LoginFoodView extends StatelessWidget {
 
   Container buildContainerIconField(BuildContext context, IconData icon) {
     return Container(
-      child: Icon(icon, color: context.colors.primaryVariant),
       color: context.colors.onError,
       padding: context.paddingLow,
+      child: Icon(icon, color: context.colors.primaryVariant),
     );
   }
 
@@ -157,8 +149,7 @@ class LoginFoodView extends StatelessWidget {
         textAlign: TextAlign.end,
       ));
 
-  Widget buildElevatedButtonLogin(
-      BuildContext context, LoginFoodViewModel viewModel) {
+  Widget buildElevatedButtonLogin(BuildContext context, LoginFoodViewModel viewModel) {
     return Observer(builder: (_) {
       return ElevatedButton(
         onPressed: viewModel.isLoading
@@ -166,15 +157,16 @@ class LoginFoodView extends StatelessWidget {
             : () {
                 viewModel.fetchLoginService();
               },
-        child: Center(
-            child: Text(
-          LocaleKeys.login_login.locale,
-          style: context.textTheme.headline5,
-        )),
         style: ButtonStyle(
           padding: MaterialStateProperty.all(context.paddingNormal),
           backgroundColor: MaterialStateProperty.all(context.theme.errorColor),
           shape: MaterialStateProperty.all(StadiumBorder()),
+        ),
+        child: Center(
+          child: Text(
+            LocaleKeys.login_login.locale,
+            style: context.textTheme.headline5,
+          ),
         ),
       );
     });
@@ -183,10 +175,7 @@ class LoginFoodView extends StatelessWidget {
   Wrap buildWrapForgot() {
     return Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
-      children: [
-        Text(LocaleKeys.login_dontAccount.locale),
-        TextButton(onPressed: () {}, child: Text(LocaleKeys.login_tab2.locale))
-      ],
+      children: [Text(LocaleKeys.login_dontAccount.locale), TextButton(onPressed: () {}, child: Text(LocaleKeys.login_tab2.locale))],
     );
   }
 }

@@ -7,34 +7,38 @@ import 'ilight_theme.dart';
 class AppThemeLight extends AppTheme with ILightTheme {
   static AppThemeLight _instance;
   static AppThemeLight get instance {
-    if (_instance == null) _instance = AppThemeLight._init();
+    _instance ??= AppThemeLight._init();
     return _instance;
   }
 
   AppThemeLight._init();
+  @override
   ThemeData get theme => ThemeData(
         colorScheme: _appColorScheme,
         textTheme: textTheme(),
         appBarTheme: ThemeData.light().appBarTheme.copyWith(
-            brightness: Brightness.light,
-            color: Colors.transparent,
-            elevation: 0,
-            iconTheme: IconThemeData(color: Colors.black87, size: 21)),
+            brightness: Brightness.light, color: Colors.transparent, elevation: 0, iconTheme: IconThemeData(color: Colors.black87, size: 21)),
         inputDecorationTheme: InputDecorationTheme(
           focusColor: Colors.black12,
-          enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.red),
+          fillColor: Colors.white,
+          contentPadding: EdgeInsets.zero,
+          filled: true,
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(width: 0.3),
           ),
-          focusedBorder: UnderlineInputBorder(
+          /*focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.red),
-          ),
-          border: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.red),
-          ),
+          ),*/
+          border: OutlineInputBorder(),
         ),
         scaffoldBackgroundColor: Color(0xfff1f3f8),
         fontFamily: ApplicationConstants.POPPINS,
         tabBarTheme: tabBarTheme,
+        buttonTheme: ThemeData.light().buttonTheme.copyWith(
+              colorScheme: ColorScheme.light(
+                onError: Color(0xffFF2D55),
+              ),
+            ),
       );
 
   TabBarTheme get tabBarTheme {
@@ -47,10 +51,9 @@ class AppThemeLight extends AppTheme with ILightTheme {
   }
 
   TextTheme textTheme() {
-    return ThemeData.light().textTheme.copyWith(
-        headline1: textThemeLight.headline1,
-        headline2: textThemeLight.headline2,
-        overline: textThemeLight.headline3);
+    return ThemeData.light()
+        .textTheme
+        .copyWith(headline1: textThemeLight.headline1, headline2: textThemeLight.headline2, overline: textThemeLight.headline3);
   }
 
   ColorScheme get _appColorScheme {

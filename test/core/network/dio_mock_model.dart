@@ -15,12 +15,13 @@ class PostModel extends BaseModel<PostModel> {
     body = json['body'];
   }
 
+  @override
   Map<String, Object> toJson() {
-    final Map<String, Object> data = new Map<String, Object>();
-    data['userId'] = this.userId;
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['body'] = this.body;
+    final data = <String, Object>{};
+    data['userId'] = userId;
+    data['id'] = id;
+    data['title'] = title;
+    data['body'] = body;
     return data;
   }
 

@@ -13,14 +13,13 @@ part 'on_board_view_model.g.dart';
 class OnBoardViewModel = _OnBoardViewModelBase with _$OnBoardViewModel;
 
 abstract class _OnBoardViewModelBase with Store, BaseViewModel {
+  @override
   void setContext(BuildContext context) => this.context = context;
+  @override
   void init() {
-    onBoardItems.add(OnBoardModel(LocaleKeys.onBoard_page1_title,
-        LocaleKeys.onBoard_page1_desc, SVGImagePath.instance.astronautSVG));
-    onBoardItems.add(OnBoardModel(LocaleKeys.onBoard_page2_title,
-        LocaleKeys.onBoard_page2_desc, SVGImagePath.instance.chattingSVG));
-    onBoardItems.add(OnBoardModel(LocaleKeys.onBoard_page3_title,
-        LocaleKeys.onBoard_page3_desc, SVGImagePath.instance.relaxSVG));
+    onBoardItems.add(OnBoardModel(LocaleKeys.onBoard_page1_title, LocaleKeys.onBoard_page1_desc, SVGImagePath.instance.astronautSVG));
+    onBoardItems.add(OnBoardModel(LocaleKeys.onBoard_page2_title, LocaleKeys.onBoard_page2_desc, SVGImagePath.instance.chattingSVG));
+    onBoardItems.add(OnBoardModel(LocaleKeys.onBoard_page3_title, LocaleKeys.onBoard_page3_desc, SVGImagePath.instance.relaxSVG));
   }
 
   @observable

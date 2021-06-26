@@ -10,10 +10,12 @@ class LoginFoodResponseModel extends BaseModel {
 
   LoginFoodResponseModel({this.token});
 
+  @override
   LoginFoodResponseModel fromJson(Map<String, Object> json) {
     return _$LoginFoodResponseModelFromJson(json);
   }
 
+  @override
   Map<String, Object> toJson() {
     return _$LoginFoodResponseModelToJson(this);
   }

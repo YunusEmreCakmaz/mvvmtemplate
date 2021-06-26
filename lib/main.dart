@@ -9,7 +9,7 @@ import 'core/init/navigation/navigation_route.dart';
 import 'core/init/navigation/navigation_service.dart';
 import 'core/init/notifier/application_provider.dart';
 import 'core/init/notifier/theme_notifier.dart';
-import 'view/home/build/feed/view/build_feed_view.dart';
+import 'view/home/social/view/social_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,9 +19,9 @@ Future<void> main() async {
   runApp(MultiProvider(
     providers: [...ApplicationProvider.instance.dependItems],
     child: EasyLocalization(
-      child: MyApp(),
       supportedLocales: LanguageManager.instance.supportedLocales,
       path: ApplicationConstants.LANG_ASSET_PATH,
+      child: MyApp(),
     ),
   ));
 }
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: Provider.of<ThemeNotifier>(context, listen: false).currentTheme,
-      home: BuildFeedView(),
+      home: SocialView(),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,

@@ -6,7 +6,7 @@ import 'icore_dio.dart';
 class NetworkManager {
   static NetworkManager _instance;
   static NetworkManager get instance {
-    if (_instance == null) _instance = NetworkManager._init();
+    _instance ??= NetworkManager._init();
     return _instance;
   }
 
@@ -14,7 +14,7 @@ class NetworkManager {
 
   NetworkManager._init() {
     final baseOptions = BaseOptions(
-      baseUrl: "http://10.0.2.2:3000/",
+      baseUrl: 'http://192.168.1.53:3000/', //'http://10.0.2.2:3000/',
       /*headers: {
         "val": LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)
       },*/

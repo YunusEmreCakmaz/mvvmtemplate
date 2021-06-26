@@ -12,7 +12,7 @@ class MVVMLoginButton extends StatelessWidget {
     return IconNormalButton(
       icon: Icons.access_alarm,
       onPressed: () {
-        onComplete("OK");
+        onComplete('OK');
       },
     );
   }

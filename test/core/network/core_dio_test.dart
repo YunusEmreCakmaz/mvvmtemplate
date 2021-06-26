@@ -5,47 +5,37 @@ import 'package:mvvmtemplate/core/init/network/icore_dio.dart';
 import 'core_dio_mock.dart';
 import 'dio_mock_model.dart';
 
-main() {
+void main() async {
   ICoreDioFull service;
   setUp(() {
-    service = CoreDioMock(
-        BaseOptions(baseUrl: "https://jsonplaceholder.typicode.com"));
+    service = CoreDioMock(BaseOptions(baseUrl: 'https://jsonplaceholder.typicode.com'));
   });
-  test("CoreDio List", () async {
-    final data = await service.fetch<List<PostModel>, PostModel>("/posts",
-        type: HttpTypes.GET, parseModel: PostModel());
+  test('CoreDio List', () async {
+    final data = await service.fetch<List<PostModel>, PostModel>('/posts', type: HttpTypes.GET, parseModel: PostModel());
 
     expect(data.data, isList);
   });
 
-  test("CoreDio List No Network", () async {
-    final data = await service.fetchNoNetwork<List<PostModel>, PostModel>(
-        "/posts",
-        type: HttpTypes.GET,
-        parseModel: PostModel());
+  test('CoreDio List No Network', () async {
+    final data = await service.fetchNoNetwork<List<PostModel>, PostModel>('/posts', type: HttpTypes.GET, parseModel: PostModel());
 
     expect(data.data, isList);
   });
 
-  test("CoreDio Object", () async {
-    final data = await service.fetch<List<PostModel>, PostModel>("/posts",
-        type: HttpTypes.GET, parseModel: PostModel());
+  test('CoreDio Object', () async {
+    final data = await service.fetch<List<PostModel>, PostModel>('/posts', type: HttpTypes.GET, parseModel: PostModel());
 
     expect(data.data, isList);
   });
 
-  test("CoreDio Primitive", () async {
-    final data = await service.fetch<List<PostModel>, PostModel>("/posts",
-        type: HttpTypes.GET, parseModel: PostModel());
+  test('CoreDio Primitive', () async {
+    final data = await service.fetch<List<PostModel>, PostModel>('/posts', type: HttpTypes.GET, parseModel: PostModel());
 
     expect(data.data, isList);
   });
 
-  test("CoreDio Error", () async {
-    final data = await service.fetchNoNetwork<List<PostModel>, PostModel>(
-        "/posts",
-        type: HttpTypes.GET,
-        parseModel: PostModel());
+  test('CoreDio Error', () async {
+    final data = await service.fetchNoNetwork<List<PostModel>, PostModel>('/posts', type: HttpTypes.GET, parseModel: PostModel());
 
     expect(data.data, isList);
   });

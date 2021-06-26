@@ -14,6 +14,7 @@ import 'iresponse_model.dart';
 part './network_core/core_operations.dart';
 
 class CoreDio with DioMixin implements Dio, ICoreDio {
+  @override
   BaseOptions options;
 
   CoreDio(this.options) {
@@ -22,14 +23,16 @@ class CoreDio with DioMixin implements Dio, ICoreDio {
     httpClientAdapter = DefaultHttpClientAdapter();
   }
 
+  @override
   Future<IResponseModel<R>> fetch<R, T extends BaseModel>(String path,
       {@required HttpTypes type,
       @required T parseModel,
       dynamic data,
+      String urlSuffix = '',
       Map<String, dynamic> queryParameters,
       void Function(int, int) onReceiveProgress}) async {
     final response = await request(
-      path,
+      '$path$urlSuffix',
       data: data,
       options: Options(method: type.rawValue),
     );

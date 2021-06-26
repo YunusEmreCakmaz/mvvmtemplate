@@ -25,7 +25,7 @@ class _TestViewState extends BaseState<TestView> {
       onModelReady: (model) {
         viewModel = model;
       },
-      onPageBuilder: (context, value) => Text("data"),
+      onPageBuilder: (context, value) => Text('data'),
     );
   }
 
@@ -37,8 +37,7 @@ class _TestViewState extends BaseState<TestView> {
 
   AppBar appBar() {
     return AppBar(
-      leading:
-          Text(LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)),
+      leading: Text(LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)),
       title: textWelcomeWidget(),
       actions: [iconButtonChangeTheme()],
     );

@@ -6,7 +6,7 @@ part 'house_model.g.dart';
 
 @JsonSerializable()
 class HouseModel extends BaseModel {
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   String id;
   String title;
   String description;
@@ -14,11 +14,10 @@ class HouseModel extends BaseModel {
   UserHouse user;
   int iV;
 
-  HouseModel(
-      {this.id, this.title, this.description, this.image, this.user, this.iV});
+  HouseModel({this.id, this.title, this.description, this.image, this.user, this.iV});
 
   @override
-  fromJson(Map<String, Object> json) {
+  HouseModel fromJson(Map<String, Object> json) {
     return _$HouseModelFromJson(json);
   }
 
@@ -30,7 +29,7 @@ class HouseModel extends BaseModel {
 
 @JsonSerializable()
 class UserHouse extends BaseModel {
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   String id;
   String name;
   String image;
@@ -39,7 +38,7 @@ class UserHouse extends BaseModel {
   UserHouse({this.id, this.name, this.image, this.date});
 
   @override
-  fromJson(Map<String, Object> json) {
+  UserHouse fromJson(Map<String, Object> json) {
     return _$UserHouseFromJson(json);
   }
 

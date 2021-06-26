@@ -43,8 +43,7 @@ class OnBoardView extends StatelessWidget {
   PageView buildPageView(OnBoardViewModel viewModel) {
     return PageView.builder(
       itemCount: viewModel.onBoardItems.length,
-      itemBuilder: (context, index) =>
-          buildColumnBody(context, viewModel.onBoardItems[index]),
+      itemBuilder: (context, index) => buildColumnBody(context, viewModel.onBoardItems[index]),
       onPageChanged: (value) {
         viewModel.changeCurrentIndex(value);
       },
@@ -57,8 +56,7 @@ class OnBoardView extends StatelessWidget {
       children: [
         buildListViewCircles(viewModel),
         Expanded(child: Center(child: Observer(builder: (_) {
-          return Visibility(
-              visible: viewModel.isLoading, child: CircularProgressIndicator());
+          return Visibility(visible: viewModel.isLoading, child: CircularProgressIndicator());
         }))),
         buildFloatingActionButtonSkip(context, viewModel)
       ],
@@ -78,15 +76,14 @@ class OnBoardView extends StatelessWidget {
     );
   }
 
-  FloatingActionButton buildFloatingActionButtonSkip(
-      BuildContext context, OnBoardViewModel viewModel) {
+  FloatingActionButton buildFloatingActionButtonSkip(BuildContext context, OnBoardViewModel viewModel) {
     return FloatingActionButton(
       backgroundColor: context.colors.secondaryVariant,
+      onPressed: () => viewModel.completeToOnBoard(),
       child: Icon(
         Icons.keyboard_arrow_right,
         color: context.colors.primaryVariant,
       ),
-      onPressed: () => viewModel.completeToOnBoard(),
     );
   }
 
@@ -102,8 +99,7 @@ class OnBoardView extends StatelessWidget {
     );
   }
 
-  Column buildColumnDescription(
-      BuildContext context, OnBoardModel onBoardModel) {
+  Column buildColumnDescription(BuildContext context, OnBoardModel onBoardModel) {
     return Column(
       children: [
         buildAutoLocalTextTitle(onBoardModel, context),
@@ -115,8 +111,7 @@ class OnBoardView extends StatelessWidget {
     );
   }
 
-  AutoLocalText buildAutoLocalTextDesc(
-      OnBoardModel onBoardModel, BuildContext context) {
+  AutoLocalText buildAutoLocalTextDesc(OnBoardModel onBoardModel, BuildContext context) {
     return AutoLocalText(
         value: onBoardModel.description,
         textAlign: TextAlign.center,
@@ -125,8 +120,7 @@ class OnBoardView extends StatelessWidget {
             ));
   }
 
-  AutoLocalText buildAutoLocalTextTitle(
-      OnBoardModel onBoardModel, BuildContext context) {
+  AutoLocalText buildAutoLocalTextTitle(OnBoardModel onBoardModel, BuildContext context) {
     return AutoLocalText(
       value: onBoardModel.title,
       style: Theme.of(context).textTheme.headline3.copyWith(

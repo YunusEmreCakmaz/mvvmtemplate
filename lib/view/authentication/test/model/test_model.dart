@@ -11,12 +11,13 @@ class TestModel extends BaseModel {
 
   TestModel({this.userId, this.id, this.title, this.completed});
 
+  @override
   Map<String, Object> toJson() {
-    final Map<String, Object> data = new Map<String, Object>();
-    data['userId'] = this.userId;
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['completed'] = this.completed;
+    final data = <String, Object>{};
+    data['userId'] = userId;
+    data['id'] = id;
+    data['title'] = title;
+    data['completed'] = completed;
     return data;
   }
 

@@ -18,7 +18,9 @@ abstract class _LoginFoodViewModelBase with Store, BaseViewModel {
   TextEditingController emailController;
   TextEditingController passwordController;
   ILoginService loginService;
+  @override
   void setContext(BuildContext context) => this.context = context;
+  @override
   void init() {
     loginService = LoginService(NetworkManager.instance.coreDio);
     emailController = TextEditingController();
@@ -34,8 +36,7 @@ abstract class _LoginFoodViewModelBase with Store, BaseViewModel {
   Future<void> fetchLoginService() async {
     isLoadingChange();
     if (formState.currentState.validate()) {
-      final response = await loginService.fetchUserControl(LoginFoodModel(
-          email: emailController.text, password: passwordController.text));
+      final response = await loginService.fetchUserControl(LoginFoodModel(email: emailController.text, password: passwordController.text));
 
       if (response != null) {
         if (scaffoldState.currentState != null) {
@@ -43,8 +44,7 @@ abstract class _LoginFoodViewModelBase with Store, BaseViewModel {
             content: const Text('response.token'),
           ));
         }
-        await localeManager.setStringValue(
-            PreferencesKeys.TOKEN, response.token);
+        await localeManager.setStringValue(PreferencesKeys.TOKEN, response.token);
       }
     }
     isLoadingChange();

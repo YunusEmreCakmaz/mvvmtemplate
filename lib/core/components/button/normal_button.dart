@@ -12,7 +12,7 @@ class NormalButton extends StatelessWidget {
       padding: EdgeInsets.all(15),
       child: ElevatedButton(
         onPressed: onPressed,
-        child: Center(child: Text("Text")),
+        child: Center(child: Text('Text')),
       ),
     );
   }

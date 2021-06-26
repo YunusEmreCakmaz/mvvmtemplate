@@ -6,14 +6,13 @@ class IconNormalButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onPressed;
 
-  const IconNormalButton({Key key, @required this.icon, this.onPressed})
-      : super(key: key);
+  const IconNormalButton({Key key, @required this.icon, this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return NormalButton(
-      child: Icon(icon),
       onPressed: onPressed,
+      child: Icon(icon),
     );
   }
 }

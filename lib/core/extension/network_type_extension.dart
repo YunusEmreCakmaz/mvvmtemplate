@@ -4,13 +4,13 @@ extension NetworkTypeExtension on HttpTypes {
   String get rawValue {
     switch (this) {
       case HttpTypes.GET:
-        return "GET";
+        return 'GET';
         break;
       case HttpTypes.POST:
-        return "POST";
+        return 'POST';
         break;
       default:
-        throw "ERROR_TYPE";
+        throw 'ERROR_TYPE';
     }
   }
 }

@@ -11,10 +11,12 @@ class LoginFoodModel extends BaseModel {
 
   LoginFoodModel({this.email, this.password});
 
+  @override
   LoginFoodModel fromJson(Map<String, Object> json) {
     return _$LoginFoodModelFromJson(json);
   }
 
+  @override
   Map<String, Object> toJson() {
     return _$LoginFoodModelToJson(this);
   }

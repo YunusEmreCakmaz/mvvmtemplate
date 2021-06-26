@@ -10,14 +10,14 @@ class FaceBookButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TitleTextButton(
-      title: "FaceBook Button",
+      title: 'FaceBook Button',
       onPressed: () {
-        final bool isLengthSixCharacter = "dsadada".length == 6;
+        final isLengthSixCharacter = 'dsadada'.length == 6;
 
         if (isLengthSixCharacter) {
-          this.onComplete(FaceBookModel("sada", "dsada"));
+          onComplete(FaceBookModel('sada', 'dsada'));
         } else {
-          this.onComplete(null, errorMessage: "Error");
+          onComplete(null, errorMessage: 'Error');
         }
       },
     );

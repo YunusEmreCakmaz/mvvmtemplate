@@ -5,10 +5,7 @@ import '../constants/app/app_constants.dart';
 extension StringExtension on String {
   String get locale => this.tr();
 
-  String get isValidEmail =>
-      this.contains(RegExp(ApplicationConstants.EMAIL_REGEX))
-          ? null
-          : "Email is not valid";
+  String get isValidEmail => contains(RegExp(ApplicationConstants.EMAIL_REGEX)) ? null : 'Email is not valid';
 }
 
 extension ImagePathExtension on String {
